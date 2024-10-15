@@ -100,7 +100,6 @@ Hello, World!
       ```
 
 
-
 ## Initiating a Go Module
 
 1. **Initialize the module:**
@@ -126,4 +125,66 @@ Hello, World!
         ```
 
 You should see the output of your Go program.
+
+
+
+## Running the Go Program with Docker Compose
+
+### Docker Installation
+
+1. **Download Docker:**
+    - Visit the [official Docker website](https://www.docker.com/products/docker-desktop).
+    - Download the Docker Desktop installer for your operating system.
+
+2. **Install Docker:**
+    - Follow the instructions provided by the installer.
+    - Verify the installation by opening a terminal and typing:
+      ```sh
+      docker --version
+      ```
+
+### Docker Compose Installation
+
+1. **Download Docker Compose:**
+    - Visit the [Docker Compose releases page](https://github.com/docker/compose/releases).
+    - Download the appropriate version for your operating system.
+
+2. **Install Docker Compose:**
+    - Follow the instructions provided on the releases page.
+    - Verify the installation by opening a terminal and typing:
+      ```sh
+      docker-compose --version
+      ```
+
+### Running the Go Program
+
+1. **Create a `Dockerfile`:**
+    - In your project directory, create a file named `Dockerfile` and add the following content:
+      ```Dockerfile
+      FROM golang:1.17-alpine
+      WORKDIR /app
+      COPY . .
+      RUN go build -o main .
+      CMD ["./main"]
+      ```
+
+2. **Create a `docker-compose.yml` file:**
+    - In your project directory, create a file named `docker-compose.yml` and add the following content:
+      ```yaml
+      version: '3.8'
+      services:
+        app:
+          build: .
+          ports:
+            - "8080:8080"
+      ```
+
+3. **Build and run the application:**
+    - In the terminal, navigate to your project directory and run:
+      ```sh
+      docker-compose up --build
+      ```
+
+You should see the output of your Go program in the terminal.
+
 
