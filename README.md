@@ -98,3 +98,32 @@ Hello, World!
       ```sh
       go version
       ```
+
+
+
+## Initiating a Go Module
+
+1. **Initialize the module:**
+    - In your project directory, run:
+        ```sh
+        go mod init <module-name>
+        ```
+    - Replace `<module-name>` with the name of your module (e.g., `github.com/username/projectname`).
+
+2. **Add dependencies:**
+    - If your project requires external packages, you can add them by running:
+        ```sh
+        go get <package-name>
+        ```
+    - Replace `<package-name>` with the name of the package you want to add.
+
+## Running the Go Module
+
+1. **Run the module:**
+    - In the terminal, navigate to your project directory and run:
+        ```sh
+        go run .
+        ```
+
+You should see the output of your Go program.
+
