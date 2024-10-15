@@ -44,8 +44,16 @@ func main() {
     }
 	// fmt.Println(i) will throw an error as i is not defined outside the loop.
 	fmt.Println(add(5, 6))
+
+	p := Person{"John Doe", 25}
+	fmt.Printf("Name: %s\nAge: %d\n", p.Name, p.Age)
 }
 
 func add(a int, b int) int {
 	return a + b
+}
+
+type Person struct { //Structs are used to define custom data types.
+	Name string
+	Age int
 }
