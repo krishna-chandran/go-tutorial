@@ -24,4 +24,28 @@ import "fmt"
 
 func main() {
 	fmt.Println("Hello, World!")
+
+	var name string = "John Doe"
+	var age int = 25
+	fmt.Printf("Name: %s\nAge: %d\n", name, age)
+
+	batsman := "David Warner"
+	runs := 34
+	fmt.Printf("Batsmen: %s\nRuns: %d\n", batsman, runs)
+
+	if runs >= 50 {
+		fmt.Println("Half-century!")
+	} else {  // else should be added in the same line as the closing brace
+		fmt.Println("Not a half-century!")
+	}
+
+	for i := 0; i < 5; i++ { //For is the only loop in Go. i has a scope only within the loop. i cannot be declared with var.
+        fmt.Println(i)
+    }
+	// fmt.Println(i) will throw an error as i is not defined outside the loop.
+	fmt.Println(add(5, 6))
+}
+
+func add(a int, b int) int {
+	return a + b
 }
