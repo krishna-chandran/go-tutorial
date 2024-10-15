@@ -13,6 +13,15 @@
  */
 package main //
 
-func main() {
+import "fmt" 
+/**
+ * @brief Importing necessary packages.
+ *
+ * The `import` keyword is used to include the necessary packages in the Go program.
+ * Packages are used to organize and reuse code. The `fmt` package is imported here
+ * to provide formatted I/O functions, such as printing to the console.
+ */
 
+func main() {
+	fmt.Println("Hello, World!")
 }
