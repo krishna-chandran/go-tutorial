@@ -196,4 +196,5 @@ You should see the output of your Go program in the terminal.
       go get github.com/gofiber/fiber/v2
       go get gorm.io/gorm
       go get gorm.io/driver/postgres
+      go get github.com/gofiber/template/html/v2
       ```
