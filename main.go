@@ -8,12 +8,15 @@ import (
 	"go-tutorial/database"
 	"go-tutorial/models"
 	"go-tutorial/routes"
+	"go-tutorial/utils"
 	"fmt"
 )
 
 
 func main() {
 	fmt.Println("Program Started")
+
+	utils.InitRedis()
 	// Initialize the HTML template engine
 	engine := html.New("./views", ".html")
 

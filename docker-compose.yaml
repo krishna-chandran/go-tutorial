@@ -37,9 +37,21 @@ services:
       timeout: 5s # Wait 5 seconds for the test to succeed
       retries: 5 # Consider the container healthy after 5 retries
 
+  redis:
+    image: redis:7.2-alpine
+    container_name: go_redis_demo
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: ["redis-server", "--appendonly", "yes"]
+    networks:
+      - go-postgres-network
+
 # Define volumes for PostgreSQL persistence
 volumes:
   postgres_data:
+  redis_data:
 
 # Define the network for communication between services
 networks:
