@@ -4,14 +4,23 @@ import (
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"go-tutorial/controllers"
+	"go-tutorial/utils"
+	"time"
 )
 
 // SetupRoutes sets up all the routes for the application
 func SetupRoutes(app *fiber.App) {
-	// User routes
 	fmt.Println("Routes")
-	app.Get("/", controllers.GetHome)        // Display users
-	app.Get("/users", controllers.GetUsers)        // Display users
-	app.Get("/api/users", controllers.GetUsersJSON)        // Display users
-	// app.Post("/users", controllers.AddUser)   // Add a new user
+
+	// Home route (optional caching if you want)
+	app.Get("/", controllers.GetHome)
+	app.Get("/users",
+		utils.CacheMiddleware(10*time.Minute, utils.StaticKey("users_html")),
+		controllers.GetUsers,
+	)
+	app.Get("/api/users",
+		utils.CacheMiddleware(5*time.Minute, utils.StaticKey("users_json")),
+		controllers.GetUsersJSON,
+	)
+	// app.Post("/users", controllers.AddUser)
 }
